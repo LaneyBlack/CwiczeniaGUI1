@@ -10,18 +10,6 @@ public abstract class Singer {
         number = ++index;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
     public String sing() {
         return " ";
     }
