@@ -33,7 +33,7 @@ public class Squad {
     public String toString() {
         String heroesNames = "";
         for (int i = 0; i < heroes.length; i++) {
-            heroesNames = heroes[i].getName() + ", ";
+            heroesNames = heroes[i].getName() + " ";
         }
         return name + ", leader: " + leader.getName()+", heroes: " + heroesNames ;
     }
