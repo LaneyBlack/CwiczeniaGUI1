@@ -1,18 +1,16 @@
 package com.bits.squad.c1.classes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Squad {
     private String name;
     private Hero[] heroes;
     private Leader leader;
     private int counterOfHeroes;
+    private static final int MAX_HEROES = 1;
 
     public Squad(String name) {
         this.name = name;
         counterOfHeroes=0;
-        heroes = new Hero[1];
+        heroes = new Hero[MAX_HEROES];
     }
 
     public String getName() {
@@ -35,7 +33,7 @@ public class Squad {
     public String toString() {
         String heroesNames = "";
         for (int i = 0; i < heroes.length; i++) {
-            heroesNames = heroes[i].getName() + ", ";
+            heroesNames = heroes[i].getName() + " ";
         }
         return name + ", leader: " + leader.getName()+", heroes: " + heroesNames ;
     }
