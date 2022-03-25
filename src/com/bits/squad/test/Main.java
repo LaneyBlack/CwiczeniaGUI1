@@ -13,7 +13,7 @@ public class Main {
         Singer s2 = new Singer("Piaf") {
             @Override
             public String sing() {
-                return "a4iBBiii";
+                return "a4iBBbiii";
             }
         };
         Singer s3 = new Singer("Adele") {
