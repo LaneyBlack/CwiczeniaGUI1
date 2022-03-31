@@ -3,7 +3,7 @@ package com.bits.squad.c3;
 import com.bits.squad.c3.classes.Calculator;
 import com.bits.squad.c3.classes.ICalculator;
 
-public class c3 {
+public class C3 {
     public static void main(String[] args) {
         System.out.println("--------------------------Ex1--------------------------");
         Calculator<Float> c1 = new Calculator(1.4, 4.2);

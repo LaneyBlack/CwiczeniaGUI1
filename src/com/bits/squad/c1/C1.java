@@ -5,7 +5,7 @@ import com.bits.squad.c1.classes.Leader;
 import com.bits.squad.c1.classes.Squad;
 import com.bits.squad.c1.classes.TooManyHeroesException;
 
-public class c1 {
+public class C1 {
     public static void main(String[] args) {
         Hero h1 = new Hero("Jan", 50);
         Leader l1 = new Leader("Eagle", 20);

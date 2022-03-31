@@ -1,4 +1,4 @@
-package com.bits.squad.test.classes;
+package com.bits.squad.c2.classes.ex4;
 
 public abstract class Singer {
     private static int index = 0;
@@ -17,7 +17,7 @@ public abstract class Singer {
     public static Singer loudest(Singer[] sp) {
         int loudestIndex = 0;
         for (int i = 0; i < sp.length; i++) {
-            if (getUniques(sp[i].sing()) > getUniques(sp[i].sing()))
+            if (getUniques(sp[i].sing()) > getUniques(sp[loudestIndex].sing()))
                 loudestIndex = i;
         }
         return sp[loudestIndex];
@@ -25,17 +25,13 @@ public abstract class Singer {
 
     public static int getUniques(String string) {
         int matches = 0;
-        for (int i = 0; i < string.length(); i++) { //Capital letters
+        for (int i = 0; i < string.length();) {
             char letter = string.charAt(i);
-            if (letter > 65 && letter < 90) {
+            if (letter > 65 && letter < 90) { //Capital letters
                 string = string.replaceAll(String.valueOf(letter), "");
-                string = string.replaceAll(String.valueOf(letter + 32), ""); //removes
-                matches++;
-            } else if (letter > 97 && letter < 122) { //small letters
-                string = string.replaceAll(String.valueOf(letter), "");
-                string = string.replaceAll(String.valueOf(letter - 32), "");
                 matches++;
             }
+            string = string.replaceAll(String.valueOf(letter), "");
         }
         return matches;
     }
