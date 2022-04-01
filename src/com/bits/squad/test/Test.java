@@ -8,7 +8,7 @@ public class Test {
         Repeater repeater = new Repeater();
         Randomizer randomizer = new Randomizer();
         Exponent exponent = new Exponent();
-        AdvancedArena advancedArena = new AdvancedArena(randomizer, s24382);
+        AdvancedArena advancedArena = new AdvancedArena(adam, randomizer);
         advancedArena.fight(1000);
     }
 }
