@@ -11,6 +11,6 @@ public class IterTextTest {
         for (char z: text)
             System.out.print(z + " ");
         System.out.println();
-        text.forEach(x-> System.out.print(x + " "));
+        text.forEach(x->System.out.print(Character.toLowerCase((Character) x) + " "));
     }
 }

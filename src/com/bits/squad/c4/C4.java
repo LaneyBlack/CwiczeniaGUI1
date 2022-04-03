@@ -3,6 +3,7 @@ package com.bits.squad.c4;
 import com.bits.squad.c4.ex4.CountingList;
 import com.bits.squad.c4.ex5.Car;
 import com.bits.squad.c4.ex5.Person;
+import com.bits.squad.c4.ex6.Calc;
 import com.bits.squad.test.Colors;
 
 import java.util.*;
@@ -79,6 +80,11 @@ public class C4 {
         for (Map.Entry<Person, ArrayList<Car>> personCar:personCarMap.entrySet())
             System.out.println(personCar.getKey() + " has " + personCar.getValue());
         System.out.println(personCarMap.get(nowak).get(0));
-
+        System.out.println(Colors.getTextColor("CYAN") + "-------------------------------------Ex6-------------------------------------" + Colors.getTextColor("RESET"));
+        Calc calc = new Calc();
+        System.out.println(calc.doCalc("144 + 12"));
+        System.out.println(calc.doCalc("1,44 / 1,2"));
+        System.out.println(calc.doCalc("11,02 * 3"));
+        System.out.println(calc.doCalc("11,02 - 10,02"));
     }
 }

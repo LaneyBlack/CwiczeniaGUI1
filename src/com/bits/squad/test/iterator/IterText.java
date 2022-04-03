@@ -43,9 +43,8 @@ public class IterText implements Iterable<Character> {
 
     @Override
     public void forEach(Consumer action) {
-        for (int i = 0; i < text.length(); i ++)
-            if (text.charAt(i)>='A' && text.charAt(i)<='Z')
-                action.accept(text.toLowerCase().charAt(i));
+        for (int i = start; i < text.length(); i += step)
+            action.accept(text.charAt(i));
     }
 
     @Override
