@@ -1,4 +1,4 @@
-package com.bits.squad.test;
+package com.bits.squad.test.arena;
 
 import com.bits.squad.c2.classes.ex5.IGamer;
 

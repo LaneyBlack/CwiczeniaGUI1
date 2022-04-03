@@ -1,4 +1,4 @@
-package com.bits.squad.test;
+package com.bits.squad.test.arena;
 
 import java.util.ArrayList;
 

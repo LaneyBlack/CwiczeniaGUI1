@@ -1,6 +1,4 @@
-package com.bits.squad.test;
-
-import com.bits.squad.c2.classes.ex5.IGamer;
+package com.bits.squad.test.arena;
 
 public class AdvancedArena {
     // Rock 1, Paper 2, Scissors 3

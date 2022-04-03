@@ -1,8 +1,8 @@
-package com.bits.squad.test;
+package com.bits.squad.test.arena;
 
 import java.util.ArrayList;
 
-public class Adam implements IAdvancedGamer {
+public class S24382 implements IAdvancedGamer {
     //Rock 1, Paper 2, Scissors 3
     //myStats
     private int strategy;
@@ -21,10 +21,10 @@ public class Adam implements IAdvancedGamer {
 
     @Override
     public String name() {
-        return "Adam";
+        return "s24382";
     }
 
-    public Adam() {
+    public S24382() {
         strategy = 1;
         lossCount = 0;
         tieCount = 0;
@@ -93,7 +93,7 @@ public class Adam implements IAdvancedGamer {
         else if (enemyMove == 3)
             usage[2]++;
 
-        if (enemyMove == myMoves.get(myMoves.size()-1))
+        if (!score && enemyMove == myMoves.get(myMoves.size() - 1))
             tieCount++;
         else if (!score)
             lossCount++;
@@ -118,13 +118,10 @@ public class Adam implements IAdvancedGamer {
             fakesAreAlwaysFalse = false;
             fakesAreAlwaysTrue = false;
         }
-        if (!score &&
-                (enemyMoves.get(enemyMoves.size() - 1) != myMoves.get(myMoves.size() - 1)
-                        || lossCount >= (myMoves.size() -tieCount) / 2)) {
+        if (!score && (enemyMoves.get(enemyMoves.size() - 1) != myMoves.get(myMoves.size() - 1) || lossCount >= (myMoves.size() - tieCount) / 2)) {
             // then I should change strategy
             strategy = strategy == 2 ? 1 : 2;
         }
-
     }
 
     private int offence(int enemyMove) {

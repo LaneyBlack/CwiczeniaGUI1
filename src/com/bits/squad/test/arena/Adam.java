@@ -1,39 +1,36 @@
-package com.bits.squad.test;
+package com.bits.squad.test.arena;
 
 import java.util.ArrayList;
 
-public class Jupiter implements IAdvancedGamer {
+public class Adam implements IAdvancedGamer {
     //Rock 1, Paper 2, Scissors 3
     //myStats
-    int strategy;
-    double myEmaPrevious = 1;
-    int lossCount;
-    int tieCount;
+    private int strategy;
+    private double myEmaPrevious = 1;
+    private int lossCount;
+    private int tieCount;
     //lists
-    ArrayList<Integer> enemyMoves;
-    ArrayList<Integer> enemyFakes;
-    ArrayList<Integer> myMoves;
-    ArrayList<Integer> myFakes;
+    private ArrayList<Integer> enemyMoves;
+    private ArrayList<Integer> enemyFakes;
+    private ArrayList<Integer> myMoves;
     //enemy stats
-    int[] usage;
-    boolean canRepeat;
-    boolean fakesAreAlwaysTrue;
-    boolean fakesAreAlwaysFalse;
-    boolean usesEma = false;
+    private int[] usage;
+    private boolean canRepeat;
+    private boolean fakesAreAlwaysTrue;
+    private boolean fakesAreAlwaysFalse;
 
     @Override
     public String name() {
         return "Adam";
     }
 
-    public Jupiter() {
-        strategy = 2;
+    public Adam() {
+        strategy = 1;
         lossCount = 0;
         tieCount = 0;
         enemyMoves = new ArrayList<>();
         enemyFakes = new ArrayList<>();
         myMoves = new ArrayList<>();
-        myFakes = new ArrayList<>();
         fakesAreAlwaysTrue = false;
         fakesAreAlwaysFalse = false;
         usage = new int[]{0, 0, 0};
@@ -42,13 +39,12 @@ public class Jupiter implements IAdvancedGamer {
     @Override
     public int fake() {
         int myFake;
-        if (enemyFakes.size() < 3)
+        if (enemyFakes.size() > 2)
+            myFake = enemyFakes.get(enemyFakes.size() - 2);
+        else if (enemyFakes.size() < 1)
             myFake = 1;
-        else if (enemyMoves.size() < 10)
-            myFake = 2;
         else
-            myFake = enemyFakes.get(enemyFakes.size() - 9);
-        myFakes.add(myFake);
+            myFake = 2;
         return myFake;
     }
 
@@ -60,10 +56,10 @@ public class Jupiter implements IAdvancedGamer {
             myMove = offence(fake);
         } else if (fakesAreAlwaysFalse && !canRepeat && fake != enemyMoves.get(enemyMoves.size() - 1) && enemyMoves.size() > 10) {
             myMove = switch (enemyMoves.get(enemyMoves.size() - 1)) {
-                default -> myMove;
                 case 1 -> fake == 2 ? offence(3) : offence(2);
                 case 2 -> fake == 1 ? offence(3) : offence(1);
                 case 3 -> fake == 2 ? offence(1) : offence(2);
+                default -> myMove;
             };
         } else if (strategy == 1) { //Default strategy. Just counting the most used option.
             if (!enemyMoves.isEmpty()) {
@@ -82,9 +78,7 @@ public class Jupiter implements IAdvancedGamer {
             }
         } else if (strategy == 2) {
             myMove = offence((int) Math.round(myEmaPrevious));
-        } else if (strategy == 3) {
         }
-        System.out.println("Adam final move " + myMove);
         myMoves.add(myMove);
         return myMove;
     }
@@ -98,14 +92,17 @@ public class Jupiter implements IAdvancedGamer {
             usage[1]++;
         else if (enemyMove == 3)
             usage[2]++;
+
         if (enemyMove == myMoves.get(myMoves.size()-1))
             tieCount++;
+        else if (!score)
+            lossCount++;
+
         if (!canRepeat && enemyMoves.size() > 1 && enemyMoves.get(enemyMoves.size() - 2) == enemyMoves.get(enemyMoves.size() - 1)) //if he can repeat
             canRepeat = true;
         //update EMA
         double ema = myEmaPrevious + 0.2 * (enemyMove - myEmaPrevious);
         myEmaPrevious = ema;
-        System.out.println("Adam ema = " + ema);
         //check for fakes
         int matchCounter = 0;
         for (int i = 0; i < enemyMoves.size(); i++)

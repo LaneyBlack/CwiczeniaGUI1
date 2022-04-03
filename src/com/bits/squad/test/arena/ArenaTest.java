@@ -1,6 +1,6 @@
-package com.bits.squad.test;
+package com.bits.squad.test.arena;
 
-public class Test {
+public class ArenaTest {
     public static void main(String[] args) {
         Adam adam = new Adam();
         S24382 s24382 = new S24382();
