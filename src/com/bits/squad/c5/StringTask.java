@@ -31,14 +31,6 @@ public class StringTask implements Runnable {
             taskState = TaskState.READY;
     }
 
-    public String getResult() {
-        return text;
-    }
-
-    public TaskState getState() {
-        return taskState;
-    }
-
     public void start() {
         Thread thread = new Thread(this::run);
         thread.start();
@@ -48,7 +40,16 @@ public class StringTask implements Runnable {
         return taskState == TaskState.READY || taskState == TaskState.ABORTED;
     }
 
+    public String getResult() {
+        return text;
+    }
+
+    public TaskState getState() {
+        return taskState;
+    }
+
     public void abort() {
+        if (times>0)
         taskState = TaskState.ABORTED;
     }
 }

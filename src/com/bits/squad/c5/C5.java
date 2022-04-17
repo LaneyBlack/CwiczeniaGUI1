@@ -57,7 +57,6 @@ public class C5 {
                 }
             };
             thread.start();
-            /*<-tu zapisać kod  przerywający działanie tasku po sekundzie       i uruchomic go w odrębnym wątku  */
             while (!task.isDone()) {
                 Thread.sleep(500);
                 switch (task.getState()) {
