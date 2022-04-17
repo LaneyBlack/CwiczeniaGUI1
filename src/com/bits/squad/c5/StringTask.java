@@ -1,13 +1,15 @@
 package com.bits.squad.c5;
 
-public class StringTask implements Runnable{
+public class StringTask implements Runnable {
     TaskState taskState;
-    enum TaskState{
+
+    enum TaskState {
         CREATED,
         RUNNING,
         ABORTED,
         READY
     }
+
     private String text;
     private int times;
 
@@ -19,14 +21,17 @@ public class StringTask implements Runnable{
 
     @Override
     public void run() {
-        while (!isDone()||times>0) {
-            text += text;
+        taskState = TaskState.RUNNING;
+        String concat = text;
+        while (!isDone() && times > 0) {
+            text += concat;
             times--;
         }
-        taskState = TaskState.READY;
+        if (times <= 0)
+            taskState = TaskState.READY;
     }
 
-    public String getResult(){
+    public String getResult() {
         return text;
     }
 
@@ -34,16 +39,16 @@ public class StringTask implements Runnable{
         return taskState;
     }
 
-    public void start(){
-        taskState = TaskState.RUNNING;
-        run();
+    public void start() {
+        Thread thread = new Thread(this::run);
+        thread.start();
     }
 
-    public boolean isDone(){
+    public boolean isDone() {
         return taskState == TaskState.READY || taskState == TaskState.ABORTED;
     }
 
-    public void abort(){
+    public void abort() {
         taskState = TaskState.ABORTED;
     }
 }

@@ -42,11 +42,21 @@ public class C5 {
 //        }
         System.out.println(getTextColor("Cyan") + "----------------------------------Ex3----------------------------------" + getTextColor("Reset"));
         {
-            StringTask task = new StringTask("A", 100);
+            StringTask task = new StringTask("A", 100000);
             System.out.println("Task " + task.getState());
             task.start();
-            Thread.sleep(1000);
-            task.abort();
+            Thread thread = new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(1000);
+                        task.abort();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            thread.start();
             /*<-tu zapisać kod  przerywający działanie tasku po sekundzie       i uruchomic go w odrębnym wątku  */
             while (!task.isDone()) {
                 Thread.sleep(500);
