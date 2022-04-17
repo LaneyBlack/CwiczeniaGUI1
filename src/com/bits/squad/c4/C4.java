@@ -77,6 +77,7 @@ public class C4 {
         personCarMap.put(nowak, new ArrayList<> (asList(mazda2)));
         personCarMap.put(krawczyk, new ArrayList<> (asList(volvo,mazda1,skoda2)));
         personCarMap.put(heniek, new ArrayList<>());
+        System.out.println(personCarMap);
         for (Map.Entry<Person, ArrayList<Car>> personCar:personCarMap.entrySet())
             System.out.println(personCar.getKey() + " has " + personCar.getValue());
         System.out.println(personCarMap.get(nowak).get(0));
@@ -86,5 +87,14 @@ public class C4 {
         System.out.println(calc.doCalc("1,44 / 1,2"));
         System.out.println(calc.doCalc("11,02 * 3"));
         System.out.println(calc.doCalc("11,02 - 10,02"));
+        ArrayList<Integer> arrayList1 = new ArrayList<>();
+        arrayList1.add(1);
+        arrayList1.add(2);
+        arrayList1.add(3);
+        arrayList1.add(4);
+        arrayList1.add(5);
+        arrayList1.add(6);
+        System.out.println(arrayList1);
+        arrayList1.stream().filter(x->x%2==0).forEach(System.out::println);
     }
 }
