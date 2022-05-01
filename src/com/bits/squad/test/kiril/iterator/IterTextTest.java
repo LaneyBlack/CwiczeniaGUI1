@@ -1,4 +1,4 @@
-package com.bits.squad.test.iterator;
+package com.bits.squad.test.kiril.iterator;
 
 public class IterTextTest {
     public static void main(String[] args) {
@@ -11,6 +11,7 @@ public class IterTextTest {
         for (char z: text)
             System.out.print(z + " ");
         System.out.println();
-        text.forEach(x->System.out.print(Character.toLowerCase((Character) x) + " "));
+        text.forEach(x-> System.out.print(x + " "));
+        System.out.println();
     }
 }

@@ -40,9 +40,12 @@ public class C6 {
 //                    window.add(new JButton("Button number 5"));
 
                     //Ex5
-                    PJATKLogo logo = new PJATKLogo();
+                    PJATKLogo logo = new PJATKLogo(30);
                     window.add(logo);
                     window.setVisible(true);
+                    logo.repaint();
+                    logo.repaint();
+                    logo.repaint();
                 }
         );
     }

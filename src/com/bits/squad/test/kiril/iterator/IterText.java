@@ -1,7 +1,6 @@
-package com.bits.squad.test.iterator;
+package com.bits.squad.test.kiril.iterator;
 
 import java.util.Iterator;
-import java.util.Spliterator;
 import java.util.function.Consumer;
 
 public class IterText implements Iterable<Character> {
@@ -15,6 +14,15 @@ public class IterText implements Iterable<Character> {
         index = 0;
         step = 1;
         start = 0;
+    }
+
+    public String run(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = start; i < text.length() ; i+=step) {
+            if (text.charAt(i)>='A' && text.charAt(i)<='Z')
+                stringBuilder.append(text.toLowerCase().charAt(i) + " ");
+        }
+        return stringBuilder.toString();
     }
 
     public void setStep(int step) {
@@ -33,7 +41,6 @@ public class IterText implements Iterable<Character> {
             public boolean hasNext() {
                 return (index += step) < text.length();
             }
-
             @Override
             public Character next() {
                 return text.charAt(index);
@@ -43,12 +50,8 @@ public class IterText implements Iterable<Character> {
 
     @Override
     public void forEach(Consumer action) {
-        for (int i = start; i < text.length(); i += step)
-            action.accept(text.charAt(i));
-    }
-
-    @Override
-    public Spliterator spliterator() {
-        return Iterable.super.spliterator();
+        for (int i = start; i < text.length(); i+=step)
+            if (text.charAt(i)>='A' && text.charAt(i)<='Z')
+                action.accept(text.toLowerCase().charAt(i));
     }
 }

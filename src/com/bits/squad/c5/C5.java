@@ -45,17 +45,14 @@ public class C5 {
             StringTask task = new StringTask("A", 100000);
             System.out.println("Task " + task.getState());
             task.start();
-            Thread thread = new Thread() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(1000);
-                        task.abort();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+            Thread thread = new Thread(() -> {
+                try {
+                    Thread.sleep(1000);
+                    task.abort();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            };
+            });
             thread.start();
             while (!task.isDone()) {
                 Thread.sleep(500);

@@ -50,6 +50,7 @@ public class StringTask implements Runnable {
 
     public void abort() {
         if (times>0)
-        taskState = TaskState.ABORTED;
+        if (times > 0)
+            taskState = TaskState.ABORTED;
     }
 }
