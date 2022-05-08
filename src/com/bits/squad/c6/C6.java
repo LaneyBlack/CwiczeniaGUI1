@@ -1,7 +1,6 @@
 package com.bits.squad.c6;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class C6 {
     public static void main(String[] args) {
@@ -43,9 +42,6 @@ public class C6 {
                     PJATKLogo logo = new PJATKLogo(30);
                     window.add(logo);
                     window.setVisible(true);
-                    logo.repaint();
-                    logo.repaint();
-                    logo.repaint();
                 }
         );
     }
