@@ -84,9 +84,9 @@ public class C4 {
         System.out.println(Colors.getTextColor("CYAN") + "-------------------------------------Ex6-------------------------------------" + Colors.getTextColor("RESET"));
         Calc calc = new Calc();
         System.out.println(calc.doCalc("144 + 12"));
-        System.out.println(calc.doCalc("1,44 / 1,2"));
-        System.out.println(calc.doCalc("11,02 * 3"));
-        System.out.println(calc.doCalc("11,02 - 10,02"));
+        System.out.println(calc.doCalc("1.44 / 1.2"));
+        System.out.println(calc.doCalc("11.02 * 3"));
+        System.out.println(calc.doCalc("11.02 - 10.02"));
         ArrayList<Integer> arrayList1 = new ArrayList<>();
         arrayList1.add(1);
         arrayList1.add(2);

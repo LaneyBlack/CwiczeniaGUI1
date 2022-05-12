@@ -27,10 +27,17 @@ public class Calc {
         b = stringToDouble(parts[2]);
         return operations.get(parts[1].charAt(0)).calculate(a, b);
     }
+    public String doCalcString(String operation) {
+        String[] parts = operation.trim().split(" ", 3);
+        double a = 0, b = 0;
+        a = stringToDouble(parts[0]);
+        b = stringToDouble(parts[2]);
+        return String.valueOf(operations.get(parts[1].charAt(0)).calculate(a, b));
+    }
 
     public double stringToDouble(String number) {
         double a = 0;
-        String[] split = number.split(",");
+        String[] split = number.split("[.]");
         for (int i = split[0].length() - 1, x = 0; i >= 0; i--, x++) //before '.'
             if (split[0].charAt(i) >= '0' && split[0].charAt(i) <= '9')
                 a += (split[0].charAt(i) - '0') * (Math.pow(10, x));
