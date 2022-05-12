@@ -110,6 +110,7 @@ public class Ex3 {
                     }
                     window.setVisible(true);
                 }
+                //ToDo Make it clear and nice in for :)
         );
     }
     public static void addToTextField(JTextField textField, String symbol) {
